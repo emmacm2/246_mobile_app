@@ -1,10 +1,10 @@
-package com.example.mayedafamily.youtubetest;
+package ingebrigtsen.caboose;
 
 public class PlayerConfig {
     PlayerConfig() {
 
     }
-    private static final String API_Key = "AIzaSyATuwamlZkRvkTA6F3E7QPuIYjOP09SdNU";
+    private static final String API_Key = "AIzaSyDyXEf0jIcdhbqxjrs6MNQuXAjIt3uH9tE";
 
     public static String getAPI_Key() {
         return API_Key;
