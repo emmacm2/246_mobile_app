@@ -20,7 +20,9 @@ public static final String EXTRA_MESSAGE = "com.ingebrigtsen.caboose.MESSAGE";
     public void displayContent (View view) {
         Intent intent = new Intent (this, Content.class);
         String content = "<html><body>This is HTML</body></html>";
+        String modID = "module ID placeholder";
         intent.putExtra(EXTRA_MESSAGE, content);
+        intent.putExtra(EXTRA_MESSAGE, modID);
         startActivity(intent);
     }
 
