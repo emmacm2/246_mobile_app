@@ -7,7 +7,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class quiz extends AppCompatActivity {
-    private questionLibrary mQuestionLibrary = new questionLibrary();
+    String moduleId = MainActivity.MODULE_ID;
+    private questionLibrary mQuestionLibrary = new questionLibrary(moduleId);
 
     private TextView mQuestion;
     private Button mButtonResponse1;
@@ -25,10 +26,11 @@ public class quiz extends AppCompatActivity {
         setContentView(R.layout.activity_quiz);
 
         mQuestion = (TextView) findViewById(R.id.question);
-        mButtonResponse1 = (TextView) findViewById(R.id.response1);
-        mButtonResponse2 = (TextView) findViewById(R.id.response2);
-        mButtonResponse3 = (TextView) findViewById(R.id.response3);
-        mButtonResponse4 = (TextView) findViewById(R.id.response4);
+        mButtonResponse1 = (Button) findViewById(R.id.response1);
+        mButtonResponse2 = (Button) findViewById(R.id.response2);
+        mButtonResponse3 = (Button) findViewById(R.id.response3);
+        mButtonResponse4 = (Button) findViewById(R.id.response4);
+        mAnswer = mQuestionLibrary.getCorrectAnswer(mQuestionNumber);
 
         updateQuestions();
         //Button Listener for button 1
@@ -84,9 +86,8 @@ public class quiz extends AppCompatActivity {
         private void updateQuestions() {
             mQuestion.setText(mQuestionLibrary.getQuestion(mQuestionNumber));
             mButtonResponse1.setText(mQuestionLibrary.getResponse1(mQuestionNumber));
-            mButtonResponse2.setText(mQuestionLibrary.getResponse1(mQuestionNumber));
-            mButtonResponse3.setText(mQuestionLibrary.getResponse1(mQuestionNumber));
-            mButtonResponse4.setText(mQuestionLibrary.getResponse1(mQuestionNumber));
+            mButtonResponse2.setText(mQuestionLibrary.getResponse2(mQuestionNumber));
+            mButtonResponse3.setText(mQuestionLibrary.getResponse3(mQuestionNumber));
+            mButtonResponse4.setText(mQuestionLibrary.getResponse4(mQuestionNumber));
         }
-    }
 }

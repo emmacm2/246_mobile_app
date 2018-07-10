@@ -1,5 +1,6 @@
 package ingebrigtsen.caboose;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,10 +12,14 @@ import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
 
+import static ingebrigtsen.caboose.MainActivity.MODULE_ID;
+
 public class youtubeVideo_activity extends YouTubeBaseActivity {
+
 
     YouTubePlayerView youTubePlayerView;
     Button PlayButton;
+    Button QuizButton;
     YouTubePlayer.OnInitializedListener onInitializedListener;
     private static final String TAG = "Youtube";
     @Override
@@ -24,6 +29,7 @@ public class youtubeVideo_activity extends YouTubeBaseActivity {
         Log.d(TAG, "onCreate: Starting");
         PlayButton = (Button) findViewById(R.id.playButton);
         youTubePlayerView = (YouTubePlayerView) findViewById(R.id.YoutubePlay);
+        QuizButton = (Button) findViewById(R.id.quizButton);
 
         onInitializedListener = new YouTubePlayer.OnInitializedListener() {
             @Override
@@ -55,6 +61,16 @@ public class youtubeVideo_activity extends YouTubeBaseActivity {
             public void onClick(View v) {
                 Log.d(TAG, "onClick: Initializing Youtube Player");
                 youTubePlayerView.initialize(PlayerConfig.getAPI_Key(), onInitializedListener);
+            }
+        });
+
+        QuizButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent quizIntent = new Intent(this, quiz.class);
+                String moduleId = MODULE_ID;
+                quizIntent.putExtra(MODULE_ID, moduleId);
+                startActivity(quizIntent);
             }
         });
     }

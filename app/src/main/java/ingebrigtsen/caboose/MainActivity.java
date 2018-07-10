@@ -11,7 +11,8 @@ import com.google.android.youtube.player.YouTubePlayerView;
 public class MainActivity extends AppCompatActivity {
 
 
-    public static final String YOUTUBE_URL = "/* content needed */"
+    public static final String YOUTUBE_URL = "/* content needed */";
+    public static final String MODULE_ID = "/* content needed*/";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);
@@ -20,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void getYouTube(View view, String youtubeURL) {
         Intent youTubeIntent = new Intent(this, YoutubeVideo_activity.class);
-        youTubeIntent.putExtra(YOUTUBE_URL, youtubeURL);
+        youTubeIntent.putExtra(YOUTUBE_URL, youtubeURL, MODULE_ID, moduleId);
         startActivity(youTubeIntent);
     }
 

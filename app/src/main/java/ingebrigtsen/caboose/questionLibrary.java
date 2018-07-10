@@ -1,16 +1,26 @@
 package ingebrigtsen.caboose;
 
 public class questionLibrary {
-    private String mQuestions [] = {
 
-    };
-    private String mResponses [][] = {
+    private String mQuestions [];
+    private String mResponses [][];
+    private String mCorrectAnswers [];
+    
+    questionLibrary(String moduleId) {
 
-    };
+    }
 
-    private String mCorrectAnswers [] ={
+    public void setmQuestions(String[] mQuestions) {
+        this.mQuestions = mQuestions;
+    }
 
-    };
+    public void setmResponses(String[][] mResponses) {
+        this.mResponses = mResponses;
+    }
+
+    public void setmCorrectAnswers(String[] mCorrectAnswers) {
+        this.mCorrectAnswers = mCorrectAnswers;
+    }
 
     public String getQuestion(int a) {
         String question = mQuestions[a];
