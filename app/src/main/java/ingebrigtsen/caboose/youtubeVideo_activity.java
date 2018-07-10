@@ -11,9 +11,7 @@ import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
 
-import java.util.List;
-
-public class YouyubePlayer extends YouTubeBaseActivity {
+public class youtubeVideo_activity extends YouTubeBaseActivity {
 
     YouTubePlayerView youTubePlayerView;
     Button PlayButton;
@@ -30,6 +28,7 @@ public class YouyubePlayer extends YouTubeBaseActivity {
         onInitializedListener = new YouTubePlayer.OnInitializedListener() {
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
+                String youtubeURL = MainActivity.YOUTUBE_URL;
                 Log.d(TAG, "onClick: Successfully Initialized Youtube Player");
                 /*
                 List<String> videoList;
@@ -40,7 +39,7 @@ public class YouyubePlayer extends YouTubeBaseActivity {
                 youTubePlayer.loadPlaylist("");
                  */
 
-                youTubePlayer.loadVideo(/* Last portion of url goes here */"S2e7FKm5mUg");
+                youTubePlayer.loadVideo(/* Last portion of url goes here */youtubeURL);
 
             }
 
