@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Caboose</string>
+    <string name="titleHeader">Caboose</string>
+    <string name="tagLine">~ An End To Your Training Needs ~</string>
+    <string name="loginBtnTxt">Sign In</string>
+    <string name="loginUserId">Enter your user ID</string>
+    <string name="loginSignInBtn">Sign In</string>
+    <string name="loginServiceUrl">https://script.google.com/macros/s/AKfycby2Mmz6zPjWgXz34nQvJE_eLIscegO7oCMgf2vUUjMJFtsn8Sw/exec</string>
+    <string name="loginErrorText">Invalid User Id</string>
+    <string name="userSharedPrefs">userPrefs</string>
+    <string name="moduleType.html">html</string>
+    <string name="moduleType.youtube">youtube</string>
+    <string name="moduleHtml.quizBtn">Go to Quiz</string>
+    <string name="htmlModuleIntentHtmlData">htmlData</string>
+    <string name="youtubeModuleIntentYoutubeData">youtubeData</string>
+    <string name="moduleIntent.ModuleId">moduleId</string>
+    <string name="moduleIntent.PositionId">positionId</string>
+
+
+</resources>
