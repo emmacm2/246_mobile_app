@@ -9,7 +9,7 @@ import android.view.View;
 import com.google.firebase.auth.FirebaseAuth;
 
 /**
- * Splash Screen class adds in a splash screen while the app loads
+ * Splash Screen class adds in a splash screen with a signin button on the bottom
  */
 public class SplashScreen extends AppCompatActivity {
 
