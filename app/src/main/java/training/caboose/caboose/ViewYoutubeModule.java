@@ -1,7 +1,6 @@
 package training.caboose.caboose;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,7 +13,9 @@ import com.google.android.youtube.player.YouTubePlayerView;
 
 import training.caboose.caboose.Configs.PlayerConfig;
 
-
+/**
+ * ViewYoutubeModule will show any youTube content that the employer linked to a given module
+ */
 public class ViewYoutubeModule extends YouTubeBaseActivity {
 
     YouTubePlayerView youTubePlayerView;
@@ -26,15 +27,19 @@ public class ViewYoutubeModule extends YouTubeBaseActivity {
     String moduleId;
     String positionId;
 
-
+    /**
+     * youTube video will load, with full controls available.  Employee will click the load
+     * video button to start video playing when needed, and not automatically
+     * @param savedInstanceState instance state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_youtube_module);
         Log.d(TAG, "onCreate: Starting");
-        PlayButton = (Button) findViewById(R.id.playButton);
-        youTubePlayerView = (YouTubePlayerView) findViewById(R.id.YoutubePlay);
-        QuizButton = (Button) findViewById(R.id.quizButton);
+        PlayButton = /*(Button)*/ findViewById(R.id.playButton);
+        youTubePlayerView = /*(YouTubePlayerView)*/ findViewById(R.id.YoutubePlay);
+        QuizButton = /*(Button)*/ findViewById(R.id.quizButton);
 
         Intent intent = getIntent();
         videoId = intent.getStringExtra(getString(R.string.youtubeModuleIntentYoutubeData));
@@ -67,6 +72,10 @@ public class ViewYoutubeModule extends YouTubeBaseActivity {
         });
     }
 
+    /**
+     * Will load the quiz that is associated with the given youTube video
+     * @param view Current View
+     */
     public void loadQuiz(View view){
         Intent intent = new Intent(this, Quiz.class);
         intent.putExtra(getString(R.string.moduleIntent_ModuleId), moduleId);
