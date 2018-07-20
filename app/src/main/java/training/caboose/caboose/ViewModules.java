@@ -23,7 +23,9 @@ import training.caboose.caboose.Models.Module;
 import training.caboose.caboose.Models.ModuleIndex;
 import training.caboose.caboose.ViewAdaptors.ModuleViewAdapter;
 
-
+/**
+ * Displays modules needed for current employee
+ */
 public class ViewModules extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
@@ -45,7 +47,7 @@ public class ViewModules extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         pref = getApplicationContext().getSharedPreferences(getString(R.string.userSharedPrefs), 0);
         orgId = pref.getString("orgId", null);
-        mRecyclerView = (RecyclerView) findViewById(R.id.viewModulesRCView);
+        mRecyclerView = /*(RecyclerView)*/ findViewById(R.id.viewModulesRCView);
         mRecyclerView.setHasFixedSize(true);
         // use a linear layout manager
         mLayoutManager = new LinearLayoutManager(this);
@@ -59,6 +61,10 @@ public class ViewModules extends AppCompatActivity {
 
     }
 
+    /**
+     * Retrieves the necessary modules that the currently logged in employee needs to complete
+     * based on their position(s) as indicated by the employer
+     */
     @Override
     public void onStart() {
 
@@ -89,6 +95,11 @@ public class ViewModules extends AppCompatActivity {
                                 mRecyclerView.setAdapter(mAdapter);
                             }
 
+                            /**
+                             * Modules will contain HTML data or a You Tube video along with a
+                             * Quiz, all necessary information will be gathered
+                             * @param dataSnapshot Retrieves necessary data from Firebase
+                             */
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                 count = dataSnapshot.getChildrenCount();
