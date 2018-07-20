@@ -8,6 +8,9 @@ import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+/**
+ * Splash Screen class adds in a splash screen while the app loads
+ */
 public class SplashScreen extends AppCompatActivity {
 
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
