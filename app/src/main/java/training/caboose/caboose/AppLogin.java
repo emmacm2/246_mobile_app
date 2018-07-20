@@ -16,7 +16,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.FirebaseDatabase;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -32,16 +31,24 @@ import java.net.URL;
 
 import training.caboose.caboose.Models.EmployeeInfo;
 
+/**
+ * AppLogin class defines the activity where the employee will login using the unique code
+ * provided by the employer
+ */
 
 public class AppLogin extends AppCompatActivity {
 
     FirebaseAuth mAuth;
 
+    /**
+     * If login works, show toast and login to view given modules and positions
+     * @param view Current view
+     */
     public void tryLogin(View view) {
         Toast.makeText(AppLogin.this, "Signing in to Caboose",
                 Toast.LENGTH_SHORT).show();
-        EditText userLoginCode = (EditText) findViewById(R.id.userLoginCode);
-        ProgressBar progressBar = (ProgressBar) findViewById(R.id.loginSpinner);
+        EditText userLoginCode = /*(EditText)*/ findViewById(R.id.userLoginCode);
+        ProgressBar progressBar = /*(ProgressBar)*/ findViewById(R.id.loginSpinner);
         new getLoginToken(progressBar).execute(userLoginCode.getText().toString());
     }
 
@@ -145,8 +152,8 @@ public class AppLogin extends AppCompatActivity {
                                     editor.putString("orgId", thisEmployee.getOrgId());
                                     editor.putString("email", thisEmployee.getEmail());
                                     editor.putString("name", thisEmployee.getName());
-                                    editor.commit();
-
+                                    editor.apply();
+                                    
                                     startActivity(new Intent(AppLogin.this, ViewPositions.class));
                                 } else {
                                     // If sign in fails, display a message to the user.
