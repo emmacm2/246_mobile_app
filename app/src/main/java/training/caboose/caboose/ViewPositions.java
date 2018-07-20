@@ -23,6 +23,10 @@ import training.caboose.caboose.Models.Position;
 import training.caboose.caboose.Models.PositionIndex;
 import training.caboose.caboose.ViewAdaptors.PositionViewAdapter;
 
+/**
+ *  ViewPositions class shows the currently logged in employee the different positions that need to
+ *  have training completed
+ */
 
 public class ViewPositions extends AppCompatActivity {
 
@@ -44,7 +48,7 @@ public class ViewPositions extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         pref = getApplicationContext().getSharedPreferences(getString(R.string.userSharedPrefs), 0);
         orgId = pref.getString("orgId", null);
-        mRecyclerView = (RecyclerView) findViewById(R.id.positionsView);
+        mRecyclerView = /*(RecyclerView)*/ findViewById(R.id.positionsView);
         mRecyclerView.setHasFixedSize(true);
         // use a linear layout manager
         mLayoutManager = new LinearLayoutManager(this);
@@ -53,6 +57,10 @@ public class ViewPositions extends AppCompatActivity {
 
     }
 
+    /**
+     * Positions are assigned by employer on the website, and are pulled over to the app when this
+     * activity starts
+     */
     @Override
     public void onStart() {
 

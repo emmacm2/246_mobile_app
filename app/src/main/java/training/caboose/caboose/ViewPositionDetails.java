@@ -5,6 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+/**
+ * Actvity to show position details
+ */
 public class ViewPositionDetails extends AppCompatActivity {
 
     String positionId;
@@ -16,8 +19,8 @@ public class ViewPositionDetails extends AppCompatActivity {
         setContentView(R.layout.activity_view_position_details);
         Intent intent = getIntent();
         Bundle bd = intent.getExtras();
-        TextView statusText = (TextView) findViewById(R.id.viewStatusPositionId);
-        TextView assignedDateText = (TextView) findViewById(R.id.viewStatusAssignedDate);
+        TextView statusText = /*(TextView)*/ findViewById(R.id.viewStatusPositionId);
+        TextView assignedDateText = /*(TextView)*/ findViewById(R.id.viewStatusAssignedDate);
 
 
 
