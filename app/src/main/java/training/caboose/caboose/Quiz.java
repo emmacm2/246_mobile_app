@@ -22,6 +22,10 @@ import java.util.List;
 import training.caboose.caboose.Models.Question;
 import training.caboose.caboose.ViewAdaptors.QuizViewAdapter;
 
+/**
+ * Quiz class displays the quiz activity with questions pulled from Firebase
+ */
+
 public class Quiz extends AppCompatActivity {
 
     private String moduleId;
@@ -46,11 +50,12 @@ public class Quiz extends AppCompatActivity {
         currentUser = mAuth.getCurrentUser();
         pref = getApplicationContext().getSharedPreferences(getString(R.string.userSharedPrefs), 0);
         orgId = pref.getString("orgId", null);
-        mRecyclerView = (RecyclerView) findViewById(R.id.quizRCView);
+        mRecyclerView = /*(RecyclerView)*/ findViewById(R.id.quizRCView);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
     }
+
 
     @Override
     public void onStart() {
@@ -79,6 +84,11 @@ public class Quiz extends AppCompatActivity {
                                 mRecyclerView.setAdapter(mAdapter);
                             }
 
+                            /**
+                             *Pulls in quiz questions and possible answers from firebase and adds it to the question list
+                             *
+                             * @param dataSnapshot Quiz Data from Firebase
+                             */
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
@@ -101,7 +111,10 @@ public class Quiz extends AppCompatActivity {
                 );
     }
 
-
+    /**
+     * Submits the completed quiz
+     * @param view Current View
+     */
     public void submitQuiz(View view){
            database.getReference("EmployeeResponses/" + orgId +"/"+currentUser.getUid()+"/"+positionId+"/"+moduleId+"/complete").setValue(true);
            Intent intent = new Intent(this, ViewModules.class );

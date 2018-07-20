@@ -153,7 +153,7 @@ public class AppLogin extends AppCompatActivity {
                                     editor.putString("email", thisEmployee.getEmail());
                                     editor.putString("name", thisEmployee.getName());
                                     editor.apply();
-                                    
+
                                     startActivity(new Intent(AppLogin.this, ViewPositions.class));
                                 } else {
                                     // If sign in fails, display a message to the user.
